@@ -1,0 +1,113 @@
+@import "config";
+@import "modal";
+
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.meal-search {
+    margin-top: 5rem;
+    h1{
+        color: #fff;
+        font-size: 3rem;
+    }
+
+    h2, h3{
+        color: #fff;
+        text-align: center;
+        font-style: italic;
+        font-weight: 100;
+        margin-top: 1rem;
+    }
+   
+    .search-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem auto;
+
+        #search-input {
+            width: 70%;
+            border-radius: 10px;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            outline: none;
+            border: 1px solid rgb(70, 70, 223);
+            padding: 0.70rem 1rem;
+
+            &::placeholder{
+                color: rgb(70, 70, 223);
+                font-size: 1.05rem;
+            }
+        }
+
+        .search-btn {
+            width: 2.4rem;
+            height: 2.4rem;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            outline: none;
+            border: 1px solid rgb(70, 70, 223);
+            background-color: rgb(70, 70, 223);
+            color: #fff;
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover{
+                background-color: darken($color: rgb(70, 70, 223), $amount: 5);
+            }
+            
+        }
+    }
+}
+
+.recipe-box{
+    margin-top: 2rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    
+
+    .recipe {
+        background-color: rgba(255,255,255,.8);
+        border-radius: .4rem;
+        img{
+            border-top-left-radius: .2rem;
+            border-top-right-radius: .2rem;
+        }
+        
+        .recipe-content {
+            padding: 1rem;
+            border-radius: .2rem;
+
+            .see-recipe{
+                @include btn;
+            }
+        }
+    }
+
+}
+
+    .not-found{
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    width: 100%
+}
+
+@import "responsive";
+
+
+
+
+

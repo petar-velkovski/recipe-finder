@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Roboto:wght@300&display=swap');
+
+@mixin btn {
+     margin-top: .5rem;
+                padding: .3rem;
+                border-radius: .3rem;
+                border: 0;
+                outline: none;
+                font-size: .9rem;
+                cursor: pointer;
+                background-color: rgb(70, 70, 223);
+                color: white;
+                transition: .5s;
+
+                &:hover{
+                    background-color: darken(rgb(70, 70, 223), 5);
+                }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('/ingredients1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.6);
+    font-family: 'Roboto', sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 80%;
+    margin: 3rem auto;
+}
