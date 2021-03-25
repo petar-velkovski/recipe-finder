@@ -28,10 +28,11 @@ searchBtn.addEventListener('click', () => {
                             </div>`;
                 });
             } else {
-                    html = "Sorry, no recipe found !!!";
+                html = "Sorry, no recipe found !!!";
                 recipeBox.classList.add('not-found');
                 setTimeout(() => {
                     recipeBox.classList.remove('not-found');
+                    recipeBox.innerHTML = "";
                 },3000)
             }
             recipeBox.innerHTML = html;
