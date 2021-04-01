@@ -9,13 +9,15 @@
     overflow-y: scroll;
 
     .close-modal-btn{
+                float: right;
+                margin-right: 1rem;
                 font-size: 2rem;
                 cursor: pointer;
-                right: 1rem;
-                color: rgb(70, 70, 223);
+                color: $primary-bg-color;
 
                 &:hover{
-                    color: darken(rgb(70, 70, 223), 5);
+                    color: darken($primary-bg-color, 5);
+                    font-weight: 900;
                 }
             }
 
@@ -27,12 +29,13 @@
         line-height: 1.6;
 
         .recipe-details {
+            color: #333;
             
             .img-wrapper {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-top: 2rem;
+                margin-top: 5rem;
 
                 .recipe-img {
                         width: 200px;
@@ -44,19 +47,19 @@
             .recipe-title{
                 font-size: 2rem;
                 margin-top: 1.5rem;
-                color: rgb(70, 70, 223);
+                color: $primary-bg-color;
             }
 
             .category{
                 font-size: 1.2rem;
 
                 span{
-                    font-weight: 900;
+                    font-weight: 700;
                 }
             }
 
             .instructions{
-                font-weight: 900;
+                font-weight: 700;
             }
 
             .recipe-instructions{
@@ -65,6 +68,8 @@
 
             .video{
                 @include btn;
+                position: relative;
+                padding: 0.3rem;
             }
         }
     }

@@ -1,4 +1,4 @@
-const searchBtn = document.querySelector('.search-btn');
+var searchBtn = document.querySelector('.search-btn');
 const recipeBox = document.querySelector('.recipe-box');
 const seeRecipe = document.querySelector('.see-recipe');
 const modal = document.querySelector('.modal');
@@ -10,8 +10,35 @@ const closeModal = document.querySelector('.close-modal-btn');
 function clearField() {
     let inputTxt = document.querySelector('#search-input').value = '';
 }
+/*
+function showAll() {
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=`)
+        .then(response => response.json())
+        .then(data => {
+            let html = "";
+            if (data.meals) {
+                data.meals.forEach(meal => {
+                    html += `
+                    <div class="recipe" data-id="${meal.idMeal}">
+                                <img src="${meal.strMealThumb}">
+                                <div class="recipe-content">
+                                    <h3>${meal.strMeal}</h3>
+                                    <button class="see-recipe">See recipe</button>
+                                </div>
+                            </div>`;
+                });
+            }
+            recipeBox.innerHTML = html;
+        })
+    
+}
+showAll();
+*/
 
-searchBtn.addEventListener('click', () => {
+
+searchBtn.addEventListener('click', searchRecipe);
+
+function searchRecipe() {
     let inputTxt = document.querySelector('#search-input').value;
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputTxt}`)
         .then(response => response.json())
@@ -19,7 +46,8 @@ searchBtn.addEventListener('click', () => {
             let html = "";
             if (data.meals) {
                 data.meals.forEach(meal => {
-                    html += `<div class="recipe" data-id="${meal.idMeal}">
+                    html += `
+                    <div class="recipe" data-id="${meal.idMeal}">
                                 <img src="${meal.strMealThumb}">
                                 <div class="recipe-content">
                                     <h3>${meal.strMeal}</h3>
@@ -38,10 +66,10 @@ searchBtn.addEventListener('click', () => {
             recipeBox.innerHTML = html;
             clearField();
         })
-});
+}
+
 
 recipeBox.addEventListener('click', (e) => {
-    e.preventDefault();
     let seeRecipe = e.target.parentElement.parentElement;
     if (e.target.classList.contains('see-recipe')) {
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${seeRecipe.dataset.id}`)
@@ -62,8 +90,8 @@ function fullRecipe(meal) {
                         <img class="recipe-img" src="${meal.strMealThumb}" alt="">
                     </div>
                     <h2 class="recipe-title">${meal.strMeal}</h2>
-                    <p class="category"><span>Category:</span> ${meal.strCategory}</p>
-                    <p class="instructions">Instructions:</p>
+                    <p class="category"><span>Category :</span> ${meal.strCategory}</p>
+                    <p class="instructions">Instructions :</p>
                     <p class="recipe-instructions">${meal.strInstructions}</p>
                     <a href="${meal.strYoutube}" class="video">Watch video</a>
                 </div>
@@ -86,6 +114,8 @@ window.addEventListener('click', (e) => {
         body.style.overflow = "auto";
     }
 })
+
+
 
 
 
